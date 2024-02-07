@@ -11,11 +11,7 @@ import retrofit2.Response
 
 class ProductsViewModel : ViewModel() {
 
-    lateinit var productsLiveData: MutableLiveData<List<Product>?>
-
-    init {
-        productsLiveData = MutableLiveData()
-    }
+    var productsLiveData: MutableLiveData<List<Product>?> = MutableLiveData()
 
     fun getLiveData(): MutableLiveData<List<Product>?> {
         return productsLiveData

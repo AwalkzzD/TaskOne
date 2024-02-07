@@ -26,7 +26,7 @@ class ProductsDataAdapter(private val context: Activity) :
         return ProductsViewHolder((itemView))
     }
 
-    override fun onBindViewHolder(holder: ProductsDataAdapter.ProductsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         with(holder) {
             with(productList[position]) {
                 productID.text = this.id.toString()

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +23,7 @@ class ProductsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         productsBinding = FragmentProductsBinding.inflate(inflater)
         return productsBinding.root
     }
@@ -73,11 +72,11 @@ class ProductsFragment : Fragment() {
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this).get(ProductsViewModel::class.java)
-        viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
+        viewModel.getLiveData().observe(viewLifecycleOwner) {
             dataSize = it!!.size
             productsDataAdapter.addProduct(it.toMutableList())
             productsDataAdapter.notifyDataSetChanged()
-        })
+        }
         viewModel.getProducts(dataSize, 15)
     }
 
