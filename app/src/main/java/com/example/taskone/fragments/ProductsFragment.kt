@@ -6,22 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.adapter.ProductsDataAdapter
-import com.example.taskone.api.ProductsApi
-import com.example.taskone.data.ProductsData
 import com.example.taskone.databinding.FragmentProductsBinding
-import com.google.gson.GsonBuilder
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.taskone.viewmodels.ProductsViewModel
 
 
 class ProductsFragment : Fragment() {
     private val TAG = "ProductsFragment"
     private lateinit var productsBinding: FragmentProductsBinding
     private lateinit var productsDataAdapter: ProductsDataAdapter
+    private var dataSize: Int = 0
+    private lateinit var viewModel: ProductsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,7 +31,11 @@ class ProductsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadItems(0, 15)
+//        loadItems(0, 15)
+        initRecyclerView()
+        initViewModel()
+        viewModel.getProducts(dataSize, 15)
+
 
         val layoutManager = LinearLayoutManager(activity)
         productsBinding.recyclerView.layoutManager = layoutManager
@@ -50,7 +53,8 @@ class ProductsFragment : Fragment() {
                     if (loading) {
                         if (visibleItemCount + pastVisibleItems >= totalItemCount) {
                             loading = false
-                            loadItems(totalItemCount, 15)
+                            /*loadItems(totalItemCount, 15)*/
+                            viewModel.getProducts(dataSize, 15)
                             loading = true
                         }
                     }
@@ -62,7 +66,22 @@ class ProductsFragment : Fragment() {
         })
     }
 
-    private fun loadItems(skip: Int, limit: Int) {
+    private fun initRecyclerView() {
+        productsDataAdapter = ProductsDataAdapter(requireActivity())
+        productsBinding.recyclerView.adapter = productsDataAdapter
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this).get(ProductsViewModel::class.java)
+        viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
+            dataSize = it!!.size
+            productsDataAdapter.addProduct(it.toMutableList())
+            productsDataAdapter.notifyDataSetChanged()
+        })
+        viewModel.getProducts(dataSize, 15)
+    }
+
+    /*private fun loadItems(skip: Int, limit: Int) {
         val retrofitInstance = ProductsApi.getInstance()
         val retrofitData = retrofitInstance.getProductsData(skip, limit)
 
@@ -74,7 +93,7 @@ class ProductsFragment : Fragment() {
                         .toJson(response.body())
                 )
 
-                productsDataAdapter = ProductsDataAdapter(activity!!, response.body()?.products!!)
+                productsDataAdapter = ProductsDataAdapter(activity!!)
                 productsBinding.recyclerView.adapter = productsDataAdapter
                 productsDataAdapter.notifyDataSetChanged()
             }
@@ -83,5 +102,5 @@ class ProductsFragment : Fragment() {
                 Log.d(TAG, "onFailure: --> $t")
             }
         })
-    }
+    }*/
 }

@@ -9,8 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
 import com.example.taskone.data.Product
 
-class ProductsDataAdapter(private val context: Activity, private val dataList: List<Product>) :
+class ProductsDataAdapter(private val context: Activity) :
     RecyclerView.Adapter<ProductsDataAdapter.ProductsViewHolder>() {
+
+    private var productList: MutableList<Product> = emptyList<Product>().toMutableList()
+
+    fun addProduct(products: MutableList<Product>) {
+        this.productList.addAll(products)
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ): ProductsViewHolder {
@@ -21,7 +28,7 @@ class ProductsDataAdapter(private val context: Activity, private val dataList: L
 
     override fun onBindViewHolder(holder: ProductsDataAdapter.ProductsViewHolder, position: Int) {
         with(holder) {
-            with(dataList[position]) {
+            with(productList[position]) {
                 productID.text = this.id.toString()
                 productName.text = this.title
                 productPrice.text = this.price.toString()
@@ -29,7 +36,7 @@ class ProductsDataAdapter(private val context: Activity, private val dataList: L
         }
     }
 
-    override fun getItemCount(): Int = dataList.size
+    override fun getItemCount(): Int = productList.size
 
     class ProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productID: TextView
