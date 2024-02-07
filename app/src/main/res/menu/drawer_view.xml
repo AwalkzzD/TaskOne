@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/employeeFragment"
+            android:icon="@drawable/employee"
+            android:title="Employee Data" />
+        <item
+            android:id="@+id/carManufacturersFragment"
+            android:icon="@drawable/factory"
+            android:title="Car Manufacturers Data" />
+        <item
+            android:id="@+id/carModelFragment"
+            android:icon="@drawable/car"
+            android:title="Car Models Data" />
+        <item
+            android:id="@+id/productsFragment"
+            android:icon="@drawable/devices"
+            android:title="Products Data" />
+    </group>
+</menu>
