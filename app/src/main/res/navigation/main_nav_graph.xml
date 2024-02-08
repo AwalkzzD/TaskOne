@@ -11,42 +11,34 @@
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_employeeFragment"
-            app:destination="@id/employeeFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_carManufacturersFragment"
-            app:destination="@id/carManufacturersFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_carModelFragment"
-            app:destination="@id/carModelFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_productsFragment"
             app:destination="@id/productsFragment"
             app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_todosFragment"
+            app:destination="@id/todosFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment"
+            app:popUpTo="@id/homeFragment" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/employeeFragment"
-        android:name="com.example.taskone.fragments.EmployeeFragment"
-        android:label="Employee Data"
-        tools:layout="@layout/fragment_employee" />
-    <fragment
-        android:id="@+id/carManufacturersFragment"
-        android:name="com.example.taskone.fragments.CarManufacturersFragment"
-        android:label="Car Manufacturers Data"
-        tools:layout="@layout/fragment_car_manufacturers" />
-    <fragment
-        android:id="@+id/carModelFragment"
-        android:name="com.example.taskone.fragments.CarModelFragment"
-        android:label="Car Models Data"
-        tools:layout="@layout/fragment_car_model" />
-    <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.taskone.fragments.ProductsFragment"
-        android:label="Products Data"
+        android:label="Products"
         tools:layout="@layout/fragment_products" />
+    <fragment
+        android:id="@+id/todosFragment"
+        android:name="com.example.taskone.fragments.TodosFragment"
+        android:label="Todo-List"
+        tools:layout="@layout/fragment_todos" />
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="com.example.taskone.fragments.QuotesFragment"
+        android:label="Quotes"
+        tools:layout="@layout/fragment_quotes" />
 
 </navigation>

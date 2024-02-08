@@ -17,37 +17,48 @@
             android:gravity="center">
 
             <RelativeLayout
-                android:gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
                 <ImageButton
-                    android:id="@+id/employeeButton"
+                    android:id="@+id/todosButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/employee" />
+                    android:src="@drawable/todos" />
 
                 <TextView
-                    android:id="@+id/employeeCount"
+                    android:id="@+id/todosCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/employeeButton"
+                    android:layout_alignRight="@id/todosButton"
                     android:text="0"
                     android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/todosButton"
+                    android:layout_centerHorizontal="true"
+                    android:text="Todo Data"
+                    android:textSize="20sp" />
+
             </RelativeLayout>
 
             <RelativeLayout
-                android:gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
                 <ImageButton
                     android:id="@+id/carButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
                     android:src="@drawable/car" />
 
@@ -58,6 +69,14 @@
                     android:layout_alignRight="@id/carButton"
                     android:text="0"
                     android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/carButton"
+                    android:layout_centerHorizontal="true"
+                    android:text="Car Data"
+                    android:textSize="20sp" />
             </RelativeLayout>
         </TableRow>
 
@@ -68,15 +87,16 @@
             android:gravity="center">
 
             <RelativeLayout
-                android:gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
                 <ImageButton
                     android:id="@+id/productsButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
                     android:src="@drawable/devices" />
 
@@ -87,28 +107,45 @@
                     android:layout_alignRight="@id/productsButton"
                     android:text="0"
                     android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/productsButton"
+                    android:layout_centerHorizontal="true"
+                    android:text="Products Data"
+                    android:textSize="20sp" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
                 <ImageButton
-                    android:id="@+id/companyButton"
+                    android:id="@+id/quotesButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/factory" />
+                    android:src="@drawable/quotes" />
 
                 <TextView
-                    android:id="@+id/companyCount"
+                    android:id="@+id/quotesCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/companyButton"
+                    android:layout_alignRight="@id/quotesButton"
                     android:text="0"
                     android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/quotesButton"
+                    android:layout_centerHorizontal="true"
+                    android:text="Quotes Data"
+                    android:textSize="20sp" />
             </RelativeLayout>
         </TableRow>
     </TableLayout>

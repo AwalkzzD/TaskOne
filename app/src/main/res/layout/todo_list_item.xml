@@ -10,38 +10,37 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/productID"
+            android:id="@+id/todoID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:maxLines="1"
-            android:text="34"
+            android:text="12"
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/productName"
+            android:id="@+id/todoDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@id/productPrice"
-            android:layout_toEndOf="@id/productID"
+            android:layout_toStartOf="@+id/todoStatus"
+            android:layout_toEndOf="@+id/todoID"
             android:maxLines="3"
-            android:text="Laptop Bag"
+            android:text="Buy Groceries"
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/productPrice"
+            android:id="@+id/todoStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:maxLines="1"
-            android:text="300$"
+            android:text="TRUE"
             android:textSize="20sp" />
-
     </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>

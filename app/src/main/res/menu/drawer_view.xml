@@ -7,20 +7,17 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/employeeFragment"
-            android:icon="@drawable/employee"
-            android:title="Employee Data" />
-        <item
-            android:id="@+id/carManufacturersFragment"
-            android:icon="@drawable/factory"
-            android:title="Car Manufacturers Data" />
-        <item
-            android:id="@+id/carModelFragment"
-            android:icon="@drawable/car"
-            android:title="Car Models Data" />
+            android:id="@+id/todosFragment"
+            android:icon="@drawable/todos"
+            android:title="Todos" />
         <item
             android:id="@+id/productsFragment"
             android:icon="@drawable/devices"
-            android:title="Products Data" />
+            android:title="Products" />
+
+        <item
+            android:id="@+id/quotesFragment"
+            android:icon="@drawable/quotes"
+            android:title="Quotes" />
     </group>
 </menu>

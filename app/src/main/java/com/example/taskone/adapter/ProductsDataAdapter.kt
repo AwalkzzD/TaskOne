@@ -7,15 +7,19 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
-import com.example.taskone.data.Product
+import com.example.taskone.data.products.Product
 
 class ProductsDataAdapter(private val context: Activity) :
     RecyclerView.Adapter<ProductsDataAdapter.ProductsViewHolder>() {
 
     private var productList: MutableList<Product> = emptyList<Product>().toMutableList()
 
-    fun addProduct(products: MutableList<Product>) {
+    fun addProduct(products: List<Product>) {
         this.productList.addAll(products)
+    }
+
+    fun getProducts(): List<Product> {
+        return productList.toList()
     }
 
     override fun onCreateViewHolder(
@@ -31,7 +35,7 @@ class ProductsDataAdapter(private val context: Activity) :
             with(productList[position]) {
                 productID.text = this.id.toString()
                 productName.text = this.title
-                productPrice.text = this.price.toString()
+                productPrice.text = "$" + this.price.toString()
             }
         }
     }

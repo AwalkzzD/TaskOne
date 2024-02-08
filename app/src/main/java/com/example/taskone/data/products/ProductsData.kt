@@ -1,4 +1,4 @@
-package com.example.taskone.data
+package com.example.taskone.data.products
 
 data class ProductsData(
     val limit: Int,
