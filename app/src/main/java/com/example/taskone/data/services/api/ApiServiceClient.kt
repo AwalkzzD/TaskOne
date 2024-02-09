@@ -14,7 +14,7 @@ class ApiServiceClient {
                     Retrofit.Builder().baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
                         .build()
-                retrofitService = retrofit.create(serviceClass)
+                retrofitService = retrofit.create(serviceClass!!)
             }
             return retrofitService as S
         }

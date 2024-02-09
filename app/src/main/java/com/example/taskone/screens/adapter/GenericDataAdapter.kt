@@ -23,7 +23,7 @@ class GenericDataAdapter<T : Any>(
         return dataList.toList()
     }
 
-    class ViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun <T : Any> bind(
             item: T, bindingInterface: GenericBindingInterface<T>
         ) = bindingInterface.bindData(item, itemView)

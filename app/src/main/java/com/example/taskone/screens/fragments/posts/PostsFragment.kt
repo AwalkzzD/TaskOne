@@ -10,11 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
+import com.example.taskone.data.local.AppDatabase
+import com.example.taskone.data.models.posts.Post
+import com.example.taskone.databinding.FragmentPostsBinding
 import com.example.taskone.screens.adapter.GenericBindingInterface
 import com.example.taskone.screens.adapter.GenericDataAdapter
-import com.example.taskone.data.models.posts.Post
-import com.example.taskone.data.local.AppDatabase
-import com.example.taskone.databinding.FragmentPostsBinding
 
 class PostsFragment : Fragment() {
     private lateinit var postsBinding: FragmentPostsBinding
