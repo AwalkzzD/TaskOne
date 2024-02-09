@@ -4,10 +4,13 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
 import com.example.taskone.data.products.Product
+import com.squareup.picasso.Picasso
 
 class ProductsDataAdapter(private val context: Activity) :
     RecyclerView.Adapter<ProductsDataAdapter.ProductsViewHolder>() {
@@ -33,7 +36,7 @@ class ProductsDataAdapter(private val context: Activity) :
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         with(holder) {
             with(productList[position]) {
-                productID.text = this.id.toString()
+                Picasso.get().load(this.thumbnail.toUri()).into(productThumbnail)
                 productName.text = this.title
                 productPrice.text = "$" + this.price.toString()
             }
@@ -43,12 +46,12 @@ class ProductsDataAdapter(private val context: Activity) :
     override fun getItemCount(): Int = productList.size
 
     class ProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val productID: TextView
+        val productThumbnail: ImageView
         val productName: TextView
         val productPrice: TextView
 
         init {
-            productID = itemView.findViewById(R.id.productID)
+            productThumbnail = itemView.findViewById(R.id.productThumbnail)
             productName = itemView.findViewById(R.id.productName)
             productPrice = itemView.findViewById(R.id.productPrice)
         }
