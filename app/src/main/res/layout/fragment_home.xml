@@ -55,27 +55,27 @@
                 android:gravity="center_horizontal">
 
                 <ImageButton
-                    android:id="@+id/carButton"
+                    android:id="@+id/postsButton"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/car" />
+                    android:src="@drawable/posts" />
 
                 <TextView
-                    android:id="@+id/carCount"
+                    android:id="@+id/postsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/carButton"
+                    android:layout_alignRight="@id/postsButton"
                     android:text="0"
                     android:textSize="25sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/carButton"
+                    android:layout_below="@id/postsButton"
                     android:layout_centerHorizontal="true"
-                    android:text="Car Data"
+                    android:text="Posts Data"
                     android:textSize="20sp" />
             </RelativeLayout>
         </TableRow>

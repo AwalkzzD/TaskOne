@@ -23,23 +23,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        homeBinding.productsCount.text =
-            AppDatabase.getInstance(requireContext())!!.productsDao().getCount().toString()
-        homeBinding.todosCount.text =
-            AppDatabase.getInstance(requireContext())!!.todosDao().getCount().toString()
-        homeBinding.quotesCount.text =
-            AppDatabase.getInstance(requireContext())!!.quotesDao().getCount().toString()
+        setCounts()
 
         homeBinding.todosButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_todosFragment)
         }
-        homeBinding.carButton.setOnClickListener {}
+        homeBinding.postsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_postsFragment)
+        }
         homeBinding.productsButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_productsFragment)
         }
         homeBinding.quotesButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_quotesFragment)
         }
+    }
+
+    private fun setCounts() {
+        homeBinding.productsCount.text =
+            AppDatabase.getInstance(requireContext())!!.productsDao().getCount().toString()
+        homeBinding.todosCount.text =
+            AppDatabase.getInstance(requireContext())!!.todosDao().getCount().toString()
+        homeBinding.quotesCount.text =
+            AppDatabase.getInstance(requireContext())!!.quotesDao().getCount().toString()
+        homeBinding.postsCount.text =
+            AppDatabase.getInstance(requireContext())!!.postsDao().getCount().toString()
     }
 }
