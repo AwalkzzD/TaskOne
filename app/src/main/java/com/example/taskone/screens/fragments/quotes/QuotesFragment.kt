@@ -10,11 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
-import com.example.taskone.screens.adapter.GenericBindingInterface
-import com.example.taskone.screens.adapter.GenericDataAdapter
-import com.example.taskone.data.models.quotes.Quote
 import com.example.taskone.data.local.AppDatabase
+import com.example.taskone.data.models.quotes.Quote
 import com.example.taskone.databinding.FragmentQuotesBinding
+import com.example.taskone.screens.adapter.GenericDataAdapter
 
 class QuotesFragment : Fragment() {
 
@@ -55,8 +54,9 @@ class QuotesFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val bindingInterface = object : GenericBindingInterface<Quote> {
-            override fun bindData(item: Quote, itemView: View) {
+        genericDataAdapter =
+            GenericDataAdapter(requireActivity(), R.layout.quote_list_item) { item, itemView ->
+
                 val quoteID: TextView = itemView.findViewById(R.id.quoteID)
                 val quoteDetail: TextView = itemView.findViewById(R.id.quoteDetail)
 
@@ -64,10 +64,8 @@ class QuotesFragment : Fragment() {
                     quoteID.text = this.id.toString()
                     quoteDetail.text = this.quote
                 }
+
             }
-        }
-        genericDataAdapter =
-            GenericDataAdapter(requireActivity(), R.layout.quote_list_item, bindingInterface)
         quotesBinding.recyclerView.adapter = genericDataAdapter
     }
 

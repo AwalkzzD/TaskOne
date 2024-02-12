@@ -19,7 +19,8 @@ class PostsViewModel : ViewModel() {
     }
 
     fun getPosts() {
-        val retrofitInstance = ApiServiceClient.createService(PostsServiceApi::class.java)
+        val retrofitInstance =
+            ApiServiceClient.createService(PostsServiceApi::class.java) as PostsServiceApi
         val retrofitData = retrofitInstance.getPostsData(size, 10)
 
         retrofitData.enqueue(object : Callback<PostsData?> {

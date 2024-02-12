@@ -26,6 +26,25 @@ class HomeFragment : Fragment() {
         setCounts()
 
         homeBinding.todosButton.setOnClickListener {
+//            val fragmentManager = parentFragmentManager
+            /*val todoFragment = CommonFragment.newInstance<Todo>(
+                ViewModelProvider(this).get(
+                    TodosViewModel::class.java
+                ), { item, itemView ->
+                    val todoID: TextView = itemView.findViewById(R.id.todoID)
+                    val todoDetail: TextView = itemView.findViewById(R.id.todoDetail)
+                    val todoStatus: TextView = itemView.findViewById(R.id.todoStatus)
+
+                    with(item) {
+                        todoID.text = this.id.toString()
+                        todoDetail.text = this.todo
+                        todoStatus.text = this.completed.toString()
+                    }
+                }, R.layout.todo_list_item
+            )*/
+            /*fragmentManager.commit {
+
+            }*/
             findNavController().navigate(R.id.action_homeFragment_to_todosFragment)
         }
         homeBinding.postsButton.setOnClickListener {

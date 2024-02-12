@@ -15,7 +15,7 @@ import com.example.taskone.R
 import com.example.taskone.data.local.AppDatabase
 import com.example.taskone.data.models.products.Product
 import com.example.taskone.databinding.FragmentProductsBinding
-import com.example.taskone.screens.adapter.GenericBindingInterface
+//import com.example.taskone.screens.adapter.GenericBindingInterface
 import com.example.taskone.screens.adapter.GenericDataAdapter
 import com.squareup.picasso.Picasso
 
@@ -58,8 +58,9 @@ class ProductsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val bindingInterface = object : GenericBindingInterface<Product> {
-            override fun bindData(item: Product, itemView: View) {
+        genericDataAdapter =
+            GenericDataAdapter(requireActivity(), R.layout.product_list_item) { item, itemView ->
+
                 val productThumbnail: ImageView = itemView.findViewById(R.id.productThumbnail)
                 val productName: TextView = itemView.findViewById(R.id.productName)
                 val productPrice: TextView = itemView.findViewById(R.id.productPrice)
@@ -69,11 +70,8 @@ class ProductsFragment : Fragment() {
                     productName.text = this.title
                     productPrice.text = "$" + this.price.toString()
                 }
-            }
-        }
 
-        genericDataAdapter =
-            GenericDataAdapter(requireActivity(), R.layout.product_list_item, bindingInterface)
+            }
         productsBinding.recyclerView.adapter = genericDataAdapter
     }
 

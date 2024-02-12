@@ -13,7 +13,6 @@ import com.example.taskone.R
 import com.example.taskone.data.local.AppDatabase
 import com.example.taskone.data.models.posts.Post
 import com.example.taskone.databinding.FragmentPostsBinding
-import com.example.taskone.screens.adapter.GenericBindingInterface
 import com.example.taskone.screens.adapter.GenericDataAdapter
 
 class PostsFragment : Fragment() {
@@ -46,10 +45,6 @@ class PostsFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     private fun savetoDB() {
         val dbInstance = AppDatabase.getInstance(requireContext())
         val postsDao = dbInstance!!.postsDao()
@@ -66,8 +61,9 @@ class PostsFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val bindingInterface = object : GenericBindingInterface<Post> {
-            override fun bindData(item: Post, itemView: View) {
+        genericDataAdapter =
+            GenericDataAdapter(requireActivity(), R.layout.post_list_item) { item, itemView ->
+
                 val postID: TextView = itemView.findViewById(R.id.postID)
                 val postTitle: TextView = itemView.findViewById(R.id.postTitle)
                 val postReactions: TextView = itemView.findViewById(R.id.postReactions)
@@ -77,10 +73,8 @@ class PostsFragment : Fragment() {
                     postTitle.text = this.title
                     postReactions.text = "${this.reactions} Likes"
                 }
+
             }
-        }
-        genericDataAdapter =
-            GenericDataAdapter(requireActivity(), R.layout.post_list_item, bindingInterface)
         postsBinding.recyclerView.adapter = genericDataAdapter
     }
 

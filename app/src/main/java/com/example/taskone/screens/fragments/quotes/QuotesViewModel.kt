@@ -19,7 +19,7 @@ class QuotesViewModel : ViewModel() {
     }
 
     fun getQuotes() {
-        val retrofitInstance = ApiServiceClient.createService(QuotesServiceApi::class.java)
+        val retrofitInstance = ApiServiceClient.createService(QuotesServiceApi::class.java) as QuotesServiceApi
         val retrofitData = retrofitInstance.getQuotesData(size, 10)
 
         retrofitData.enqueue(object : Callback<QuotesData?> {

@@ -10,11 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskone.R
-import com.example.taskone.screens.adapter.GenericBindingInterface
-import com.example.taskone.screens.adapter.GenericDataAdapter
-import com.example.taskone.data.models.todos.Todo
 import com.example.taskone.data.local.AppDatabase
+import com.example.taskone.data.models.todos.Todo
 import com.example.taskone.databinding.FragmentTodosBinding
+import com.example.taskone.screens.adapter.GenericDataAdapter
 
 class TodosFragment : Fragment() {
     private lateinit var todosBinding: FragmentTodosBinding
@@ -56,8 +55,9 @@ class TodosFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val bindingInterface = object : GenericBindingInterface<Todo> {
-            override fun bindData(item: Todo, itemView: View) {
+        genericDataAdapter =
+            GenericDataAdapter(requireActivity(), R.layout.todo_list_item) { item, itemView ->
+
                 val todoID: TextView = itemView.findViewById(R.id.todoID)
                 val todoDetail: TextView = itemView.findViewById(R.id.todoDetail)
                 val todoStatus: TextView = itemView.findViewById(R.id.todoStatus)
@@ -68,10 +68,6 @@ class TodosFragment : Fragment() {
                     todoStatus.text = this.completed.toString()
                 }
             }
-        }
-
-        genericDataAdapter =
-            GenericDataAdapter(requireActivity(), R.layout.todo_list_item, bindingInterface)
         todosBinding.recyclerView.adapter = genericDataAdapter
     }
 

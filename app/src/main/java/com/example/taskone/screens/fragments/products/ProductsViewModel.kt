@@ -20,7 +20,8 @@ class ProductsViewModel : ViewModel() {
     }
 
     fun getProducts() {
-        val retrofitInstance = ApiServiceClient.createService(ProductsServiceApi::class.java)
+        val retrofitInstance =
+            ApiServiceClient.createService(ProductsServiceApi::class.java) as ProductsServiceApi
         val retrofitData = retrofitInstance.getProductsData(size, 10)
 
         retrofitData.enqueue(object : Callback<ProductsData?> {

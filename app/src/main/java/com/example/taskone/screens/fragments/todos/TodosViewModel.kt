@@ -20,7 +20,8 @@ class TodosViewModel : ViewModel() {
     }
 
     fun getTodos() {
-        val retrofitInstance = ApiServiceClient.createService(TodosServiceApi::class.java)
+        val retrofitInstance =
+            ApiServiceClient.createService(TodosServiceApi::class.java) as TodosServiceApi
         val retrofitData = retrofitInstance.getTodosData(size, 10)
 
         retrofitData.enqueue(object : Callback<TodosData?> {
