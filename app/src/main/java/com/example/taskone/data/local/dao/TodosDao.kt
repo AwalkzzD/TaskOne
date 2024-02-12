@@ -13,4 +13,7 @@ interface TodosDao {
 
     @Query("SELECT COUNT(id) FROM todos")
     fun getCount(): Int
+
+    @Query("DELETE FROM todos")
+    fun deleteAllTodos()
 }

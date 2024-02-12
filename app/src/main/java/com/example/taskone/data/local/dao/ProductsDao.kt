@@ -13,4 +13,7 @@ interface ProductsDao {
 
     @Query("SELECT COUNT(id) FROM products")
     fun getCount(): Int
+
+    @Query("DELETE FROM products")
+    fun deleteAllProducts()
 }

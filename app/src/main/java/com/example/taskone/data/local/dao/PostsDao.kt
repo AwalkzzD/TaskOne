@@ -13,4 +13,7 @@ interface PostsDao {
 
     @Query("SELECT COUNT(id) from posts")
     fun getCount(): Int
+
+    @Query("DELETE FROM posts")
+    fun deleteAllPosts()
 }

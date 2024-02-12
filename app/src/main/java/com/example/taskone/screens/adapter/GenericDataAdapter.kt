@@ -36,5 +36,4 @@ class GenericDataAdapter<T : Any>(
         val item = dataList[position]
         bindFunction(item, holder.itemView)
     }
-
 }

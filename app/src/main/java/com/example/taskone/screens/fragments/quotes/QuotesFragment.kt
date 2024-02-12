@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,14 +44,19 @@ class QuotesFragment : Fragment() {
         })
 
         quotesBinding.addToRoomDB.setOnClickListener {
-            savetoDB()
+            saveToDB()
         }
     }
 
-    private fun savetoDB() {
+    private fun saveToDB() {
         val dbInstance = AppDatabase.getInstance(requireContext())
         val quotesDao = dbInstance!!.quotesDao()
         quotesDao.insert(genericDataAdapter.getData())
+        Toast.makeText(
+            requireActivity(),
+            "${genericDataAdapter.itemCount} rows added",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun initRecyclerView() {
@@ -70,7 +76,7 @@ class QuotesFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(QuotesViewModel::class.java)
+        viewModel = ViewModelProvider(this)[QuotesViewModel::class.java]
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             genericDataAdapter.addData(it!!)
             genericDataAdapter.notifyDataSetChanged()

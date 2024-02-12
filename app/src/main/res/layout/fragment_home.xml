@@ -34,12 +34,24 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/todosTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/todosButton"
                 android:layout_centerHorizontal="true"
                 android:text="Todo Data"
                 android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/todoDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/todosTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/delete" />
 
         </RelativeLayout>
 
@@ -66,12 +78,24 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/postsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/postsButton"
                 android:layout_centerHorizontal="true"
                 android:text="Posts Data"
                 android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/postsDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/postsTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/delete" />
         </RelativeLayout>
     </TableRow>
 
@@ -104,12 +128,24 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/productTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/productsButton"
                 android:layout_centerHorizontal="true"
                 android:text="Products Data"
                 android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/productsDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/productTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/delete" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -135,12 +171,24 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/quotesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/quotesButton"
                 android:layout_centerHorizontal="true"
                 android:text="Quotes Data"
                 android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/quotesDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/quotesTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/delete" />
         </RelativeLayout>
     </TableRow>
 </TableLayout>

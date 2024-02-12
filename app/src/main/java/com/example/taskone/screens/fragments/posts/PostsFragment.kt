@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,23 +42,17 @@ class PostsFragment : Fragment() {
         })
 
         postsBinding.addToRoomDB.setOnClickListener {
-            savetoDB()
+            saveToDB()
         }
     }
 
-    private fun savetoDB() {
+    private fun saveToDB() {
         val dbInstance = AppDatabase.getInstance(requireContext())
         val postsDao = dbInstance!!.postsDao()
         postsDao.insert(genericDataAdapter.getData())
-    }
-
-    private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(PostsViewModel::class.java)
-        viewModel.getLiveData().observe(viewLifecycleOwner) {
-            genericDataAdapter.addData(it!!)
-            genericDataAdapter.notifyDataSetChanged()
-        }
-        viewModel.getPosts()
+        Toast.makeText(
+            requireActivity(), "${genericDataAdapter.itemCount} rows added", Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun initRecyclerView() {
@@ -78,4 +73,12 @@ class PostsFragment : Fragment() {
         postsBinding.recyclerView.adapter = genericDataAdapter
     }
 
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this)[PostsViewModel::class.java]
+        viewModel.getLiveData().observe(viewLifecycleOwner) {
+            genericDataAdapter.addData(it!!)
+            genericDataAdapter.notifyDataSetChanged()
+        }
+        viewModel.getPosts()
+    }
 }

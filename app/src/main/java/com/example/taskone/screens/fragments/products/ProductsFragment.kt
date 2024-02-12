@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -47,14 +48,19 @@ class ProductsFragment : Fragment() {
         })
 
         productsBinding.addToRoomDB.setOnClickListener {
-            savetoDB()
+            saveToDB()
         }
     }
 
-    private fun savetoDB() {
+    private fun saveToDB() {
         val dbInstance = AppDatabase.getInstance(requireContext())
         val productsDao = dbInstance!!.productsDao()
         productsDao.insert(genericDataAdapter.getData())
+        Toast.makeText(
+            requireActivity(),
+            "${genericDataAdapter.itemCount} rows added",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun initRecyclerView() {
@@ -68,7 +74,7 @@ class ProductsFragment : Fragment() {
                 with(item) {
                     Picasso.get().load(this.thumbnail.toUri()).into(productThumbnail)
                     productName.text = this.title
-                    productPrice.text = "$" + this.price.toString()
+                    productPrice.text = "${"$"}${this.price}"
                 }
 
             }
@@ -76,7 +82,7 @@ class ProductsFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(ProductsViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             genericDataAdapter.addData(it!!)
             genericDataAdapter.notifyDataSetChanged()

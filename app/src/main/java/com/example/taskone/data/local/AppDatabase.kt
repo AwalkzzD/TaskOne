@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.taskone.data.local.utils.Converters
 import com.example.taskone.data.local.dao.PostsDao
 import com.example.taskone.data.local.dao.ProductsDao
 import com.example.taskone.data.local.dao.QuotesDao
 import com.example.taskone.data.local.dao.TodosDao
+import com.example.taskone.data.local.utils.Converters
 import com.example.taskone.data.models.posts.Post
 import com.example.taskone.data.models.products.Product
 import com.example.taskone.data.models.quotes.Quote

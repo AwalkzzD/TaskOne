@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiServiceClient {
     companion object {
-        private val BASE_URL = "https://dummyjson.com/"
+        private const val BASE_URL = "https://dummyjson.com/"
         private var retrofitService: Any? = null
         fun <S> createService(serviceClass: Class<S>?): Any? {
             if (retrofitService == null) {
