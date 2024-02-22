@@ -1,4 +1,4 @@
-package com.example.taskone.screens.fragments
+package com.example.taskone.screens.first.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,6 @@ import com.example.taskone.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     private lateinit var homeBinding: FragmentHomeBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -25,36 +24,24 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setCounts()
 
+        val bundle = Bundle()
+
         homeBinding.todosButton.setOnClickListener {
-//            val fragmentManager = parentFragmentManager
-            /*val todoFragment = CommonFragment.newInstance<Todo>(
-                ViewModelProvider(this).get(
-                    TodosViewModel::class.java
-                ), { item, itemView ->
-                    val todoID: TextView = itemView.findViewById(R.id.todoID)
-                    val todoDetail: TextView = itemView.findViewById(R.id.todoDetail)
-                    val todoStatus: TextView = itemView.findViewById(R.id.todoStatus)
-
-                    with(item) {
-                        todoID.text = this.id.toString()
-                        todoDetail.text = this.todo
-                        todoStatus.text = this.completed.toString()
-                    }
-                }, R.layout.todo_list_item
-            )*/
-            /*fragmentManager.commit {
-
-            }*/
-            findNavController().navigate(R.id.action_homeFragment_to_todosFragment)
+            bundle.putString("instance", "Todos")
+            findNavController().navigate(R.id.action_homeFragment_to_commonFragment, bundle)
         }
         homeBinding.postsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_postsFragment)
+
+            bundle.putString("instance", "Posts")
+            findNavController().navigate(R.id.action_homeFragment_to_commonFragment, bundle)
         }
         homeBinding.productsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_productsFragment)
+            bundle.putString("instance", "Products")
+            findNavController().navigate(R.id.action_homeFragment_to_commonFragment, bundle)
         }
         homeBinding.quotesButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_quotesFragment)
+            bundle.putString("instance", "Quotes")
+            findNavController().navigate(R.id.action_homeFragment_to_commonFragment, bundle)
         }
 
         homeBinding.todoDelete.setOnClickListener {

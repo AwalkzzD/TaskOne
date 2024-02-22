@@ -2,6 +2,7 @@ package com.example.taskone.data.models.products
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.taskone.data.models.ModelReferenceClass
 
 @Entity(tableName = "products")
 data class Product(
@@ -17,4 +18,4 @@ data class Product(
     val stock: Int,
     val thumbnail: String,
     val title: String
-)
+) : ModelReferenceClass()

@@ -2,6 +2,7 @@ package com.example.taskone.data.models.posts
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.taskone.data.models.ModelReferenceClass
 
 @Entity(tableName = "posts")
 data class Post(
@@ -12,4 +13,4 @@ data class Post(
     val tags: List<String>,
     val title: String,
     val userId: Int
-)
+) : ModelReferenceClass()

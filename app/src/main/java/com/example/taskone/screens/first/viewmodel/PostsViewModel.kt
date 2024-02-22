@@ -1,4 +1,4 @@
-package com.example.taskone.screens.fragments.posts
+package com.example.taskone.screens.first.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,9 +14,7 @@ class PostsViewModel : ViewModel() {
     var postsLiveData: MutableLiveData<List<Post>?> = MutableLiveData()
     private var size: Int = 0
 
-    fun getLiveData(): MutableLiveData<List<Post>?> {
-        return postsLiveData
-    }
+    fun getLiveData(): MutableLiveData<List<Post>?> = postsLiveData
 
     fun getPosts() {
         val retrofitInstance =

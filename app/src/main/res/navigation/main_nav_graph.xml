@@ -6,47 +6,20 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.taskone.screens.fragments.HomeFragment"
+        android:name="com.example.taskone.screens.first.fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_productsFragment"
-            app:destination="@id/productsFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_todosFragment"
-            app:destination="@id/todosFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_quotesFragment"
-            app:destination="@id/quotesFragment"
-            app:popUpTo="@id/homeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_postsFragment"
-            app:destination="@id/postsFragment"
+            android:id="@+id/action_homeFragment_to_commonFragment"
+            app:destination="@id/commonFragment"
             app:popUpTo="@id/homeFragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/productsFragment"
-        android:name="com.example.taskone.screens.fragments.products.ProductsFragment"
-        android:label="Products"
-        tools:layout="@layout/fragment_products" />
-    <fragment
-        android:id="@+id/todosFragment"
-        android:name="com.example.taskone.screens.fragments.todos.TodosFragment"
-        android:label="Todo-List"
-        tools:layout="@layout/fragment_todos" />
-    <fragment
-        android:id="@+id/quotesFragment"
-        android:name="com.example.taskone.screens.fragments.quotes.QuotesFragment"
-        android:label="Quotes"
-        tools:layout="@layout/fragment_quotes" />
-    <fragment
-        android:id="@+id/postsFragment"
-        android:name="com.example.taskone.screens.fragments.posts.PostsFragment"
-        android:label="Posts"
-        tools:layout="@layout/fragment_posts" />
+        android:id="@+id/commonFragment"
+        android:name="com.example.taskone.screens.first.fragments.CommonFragment"
+        android:label="Data"
+        tools:layout="@layout/fragment_common" />
 
 </navigation>

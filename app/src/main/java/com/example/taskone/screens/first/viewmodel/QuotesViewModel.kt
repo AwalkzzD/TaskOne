@@ -1,4 +1,4 @@
-package com.example.taskone.screens.fragments.quotes
+package com.example.taskone.screens.first.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
